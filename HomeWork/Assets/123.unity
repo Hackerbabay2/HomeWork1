@@ -1089,12 +1089,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65dd0135c5a7eec4992bf50446d51f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _reached:
+  _signaling:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 858641309}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
+      - m_Target: {fileID: 858641310}
+        m_TargetAssemblyTypeName: Signaling, Assembly-CSharp
+        m_MethodName: StartSignaling
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1104,8 +1104,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _otherObjectAnimator: {fileID: 1923439496}
-  IsPlaying: 0
+      - m_Target: {fileID: 1923439498}
+        m_TargetAssemblyTypeName: StartAnimation, Assembly-CSharp
+        m_MethodName: PlayAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &858641311
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1269,7 +1279,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d24ed4d8f85bf9e4d8d2807b779df529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _otherObjectAnimator: {fileID: 1923439496}
+  _exit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 858641310}
+        m_TargetAssemblyTypeName: Signaling, Assembly-CSharp
+        m_MethodName: StopSignaling
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1923439498}
+        m_TargetAssemblyTypeName: StartAnimation, Assembly-CSharp
+        m_MethodName: StopAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1863883936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1287,11 +1323,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8443326897829588463, guid: 8d47e3c8c4f0c3a4f9c7004a12c43906, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -34.2
+      value: -20.06
       objectReference: {fileID: 0}
     - target: {fileID: 8443326897829588463, guid: 8d47e3c8c4f0c3a4f9c7004a12c43906, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.9
+      value: -2.75
       objectReference: {fileID: 0}
     - target: {fileID: 8443326897829588463, guid: 8d47e3c8c4f0c3a4f9c7004a12c43906, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1338,6 +1374,7 @@ GameObject:
   - component: {fileID: 1923439495}
   - component: {fileID: 1923439497}
   - component: {fileID: 1923439496}
+  - component: {fileID: 1923439498}
   m_Layer: 0
   m_Name: Alerm
   m_TagString: Untagged
@@ -1429,6 +1466,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1923439498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923439494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce1bb6e001bee014eb1ed4daf08d916f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2056080447
 GameObject:
   m_ObjectHideFlags: 0
