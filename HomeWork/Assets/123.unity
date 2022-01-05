@@ -1279,7 +1279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d24ed4d8f85bf9e4d8d2807b779df529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _exit:
+  Escaped:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 858641310}
@@ -1295,7 +1295,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1923439498}
-        m_TargetAssemblyTypeName: StartAnimation, Assembly-CSharp
+        m_TargetAssemblyTypeName: SwitchAnimation, Assembly-CSharp
         m_MethodName: StopAnimation
         m_Mode: 1
         m_Arguments:

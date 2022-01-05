@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(AudioSource))]
 public class Signaling : MonoBehaviour
 {
     [SerializeField] private UnityEvent _signaling;
+
     private AudioSource _audioSource;
     private bool _isSignaling;
+    private float _delay;
 
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
+        _delay = 0.01f;
     }
 
     public void StartSignaling()
@@ -42,15 +46,15 @@ public class Signaling : MonoBehaviour
     {
         while (_isSignaling)
         {
-            for (float i = 0; i < 1; i += 0.01f )
+            for (float i = 0; i < 1; i += _delay )
             {
-                _audioSource.volume += Mathf.MoveTowards(0,1,0.01f);
+                _audioSource.volume += Mathf.MoveTowards(0,1,_delay);
                 yield return null;
             }
 
-            for (float i = 1; i > 0; i -= 0.01f)
+            for (float i = 1; i > 0; i -= _delay)
             {
-                _audioSource.volume -= Mathf.MoveTowards(0,1,0.01f);
+                _audioSource.volume -= Mathf.MoveTowards(0,1,_delay);
                 yield return null;
             }
         }
