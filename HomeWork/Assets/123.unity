@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 59442490}
   - component: {fileID: 59442489}
   - component: {fileID: 59442488}
+  - component: {fileID: 59442493}
   m_Layer: 0
   m_Name: Roof
   m_TagString: Untagged
@@ -873,6 +874,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &59442493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59442486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3067c7dd25b08c479beb0a4e2785510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &145365601
 GameObject:
   m_ObjectHideFlags: 0

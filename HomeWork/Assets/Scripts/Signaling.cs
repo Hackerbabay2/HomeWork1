@@ -9,6 +9,7 @@ public class Signaling : MonoBehaviour
     [SerializeField] private UnityEvent _signaling;
 
     private AudioSource _audioSource;
+    private Coroutine playSound;
     private bool _isSignaling;
     private float _delay;
 
@@ -23,7 +24,7 @@ public class Signaling : MonoBehaviour
         _isSignaling = true;
         _audioSource.volume = 0;
         _audioSource.Play();
-        StartCoroutine(Play());
+        playSound = StartCoroutine(Play());
     }
 
     public void StopSignaling()
@@ -31,7 +32,11 @@ public class Signaling : MonoBehaviour
         _isSignaling = false;
         _audioSource.volume = 0;
         _audioSource.Stop();
-        StopCoroutine(Play());
+
+        if (playSound != null)
+        {
+            StopCoroutine(playSound);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
