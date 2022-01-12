@@ -11,7 +11,7 @@ public class Exit : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Player>(out Player player))
         {
-            Escaped.Invoke();
+            Escaped?.Invoke();
         }
     }
 }

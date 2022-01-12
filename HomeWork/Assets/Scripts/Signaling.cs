@@ -11,12 +11,11 @@ public class Signaling : MonoBehaviour
     private AudioSource _audioSource;
     private Coroutine playSound;
     private bool _isSignaling;
-    private float _delay;
+    private float _delay = 0.01f;
 
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
-        _delay = 0.01f;
     }
 
     public void StartSignaling()
@@ -43,7 +42,7 @@ public class Signaling : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Player>(out Player player))
         {
-            _signaling.Invoke();
+            _signaling?.Invoke();
         }
     }
 

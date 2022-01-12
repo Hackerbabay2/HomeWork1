@@ -8,26 +8,24 @@ public class Movement : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _jumpPower;
 
-    private Transform _transform;
     private Rigidbody2D _rigidbody2D;
     private bool _isJump;
 
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _transform = GetComponent<Transform>();
     }
 
     private void Update()
     {
         if (Input.GetKey(KeyCode.D))
         {
-            _transform.Translate(_speed * Time.deltaTime,0,0);
+            transform.Translate(_speed * Time.deltaTime,0,0);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            _transform.Translate(-_speed * Time.deltaTime, 0, 0);
+            transform.Translate(-_speed * Time.deltaTime, 0, 0);
         }
 
         if (Input.GetKey(KeyCode.Space) && _isJump == false)
