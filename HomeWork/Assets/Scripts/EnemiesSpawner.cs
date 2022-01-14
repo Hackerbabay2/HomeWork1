@@ -15,21 +15,31 @@ public class EnemiesSpawner : MonoBehaviour
     {
         _points = new List<Transform>();
 
-        for (int i = 0; i < _path.childCount; i++)
+        if (_path.childCount > 0)
         {
-            _points.Add(_path.GetChild(i));
+            for (int i = 0; i < _path.childCount; i++)
+            {
+                _points.Add(_path.GetChild(i));
+            }
+        }
+        else
+        {
+            Debug.Log("Нету спавн точек");
         }
     }
 
     private void Update()
     {
-        _timer += Time.deltaTime;
+        if (_points.Count > 0)
+        {
+            _timer += Time.deltaTime;
+        }
 
         if (_timer >= 2)
         {
             _timer = 0;
             _pointIndex = Random.Range(0, _points.Count);
-            Instantiate(_enemy, new Vector3(_points[_pointIndex].transform.position.x, _points[_pointIndex].transform.position.y, 1), Quaternion.identity);
+            Instantiate(_enemy, new Vector3(_points[_pointIndex].position.x, _points[_pointIndex].position.y, 1), Quaternion.identity);
         }
     }
 }
