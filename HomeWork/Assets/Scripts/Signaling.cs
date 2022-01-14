@@ -6,10 +6,10 @@ using UnityEngine.Events;
 [RequireComponent(typeof(AudioSource))]
 public class Signaling : MonoBehaviour
 {
-    [SerializeField] private UnityEvent _signaling;
+    [SerializeField] private UnityEvent _signaled;
 
     private AudioSource _audioSource;
-    private Coroutine playSound;
+    private Coroutine _playSound;
     private bool _isSignaling;
     private float _delay = 0.01f;
 
@@ -23,7 +23,7 @@ public class Signaling : MonoBehaviour
         _isSignaling = true;
         _audioSource.volume = 0;
         _audioSource.Play();
-        playSound = StartCoroutine(Play());
+        _playSound = StartCoroutine(Play());
     }
 
     public void StopSignaling()
@@ -32,9 +32,9 @@ public class Signaling : MonoBehaviour
         _audioSource.volume = 0;
         _audioSource.Stop();
 
-        if (playSound != null)
+        if (_playSound != null)
         {
-            StopCoroutine(playSound);
+            StopCoroutine(_playSound);
         }
     }
 
@@ -42,7 +42,7 @@ public class Signaling : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Player player))
         {
-            _signaling?.Invoke();
+            _signaled?.Invoke();
         }
     }
 

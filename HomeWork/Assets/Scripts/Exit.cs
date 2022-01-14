@@ -5,13 +5,13 @@ using UnityEngine.Events;
 
 public class Exit : MonoBehaviour
 {
-    [SerializeField] private UnityEvent Escaped;
+    [SerializeField] private UnityEvent _escaped;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.TryGetComponent(out Player player))
         {
-            Escaped?.Invoke();
+            _escaped?.Invoke();
         }
     }
 }
