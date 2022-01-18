@@ -9,7 +9,6 @@ public class EnemiesSpawner : MonoBehaviour
 
     private List<Transform> _points;
     private int _pointIndex;
-    private float _timer;
 
     private void Start()
     {
@@ -26,20 +25,28 @@ public class EnemiesSpawner : MonoBehaviour
         {
             Debug.Log("Нету спавн точек");
         }
-    }
 
-    private void Update()
-    {
         if (_points.Count > 0)
         {
-            _timer += Time.deltaTime;
+            StartSpawn();
         }
+    }
 
-        if (_timer >= 2)
+    private void StartSpawn()
+    {
+        var spawnMobJob = StartCoroutine(SpawnMob(2f));
+    }
+
+    private IEnumerator SpawnMob(float duration)
+    {
+        bool isSpawn = true;
+        var waitForDuration = new WaitForSeconds(duration);
+
+        while (isSpawn)
         {
-            _timer = 0;
             _pointIndex = Random.Range(0, _points.Count);
             Instantiate(_enemy, new Vector3(_points[_pointIndex].position.x, _points[_pointIndex].position.y, 1), Quaternion.identity);
+            yield return waitForDuration;
         }
     }
 }

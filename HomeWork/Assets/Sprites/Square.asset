@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: Square
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 7482667652216324306, guid: 03ffa5866212283428f52425ed07b1bd, type: 3}
-  m_Color: {r: 0.53106743, g: 0.7075472, b: 0, a: 1}
+  m_Sprite: {fileID: 7482667652216324306, guid: 2b498696fb2509c4ea2a93a0090cda19, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
     e01: 0
